@@ -47,6 +47,8 @@ vendor_dlkm                                             /vendor_dlkm           e
 vendor_dlkm                                             /vendor_dlkm           erofs   ro                                                   wait,slotselect,avb,logical,first_stage_mount
 odm                                                     /odm                   ext4    ro,barrier=1,discard                                 wait,slotselect,avb,logical,first_stage_mount
 odm                                                     /odm                   erofs   ro                                                   wait,slotselect,avb,logical,first_stage_mount
+odm_dlkm                                                /odm_dlkm              ext4    ro,barrier=1,discard                                 wait,slotselect,avb,logical,first_stage_mount
+odm_dlkm                                                /odm_dlkm              erofs   ro                                                   wait,slotselect,avb,logical,first_stage_mount
 my_product                                              /my_product            ext4    ro,barrier=1,discard                                 wait,slotselect,logical,first_stage_mount
 my_product                                              /my_product            erofs   ro                                                   wait,slotselect,logical,first_stage_mount
 my_company                                              /my_company            ext4    ro,barrier=1,discard                                 wait,slotselect,logical,first_stage_mount,nofail
