@@ -1,0 +1,33 @@
+name: Build PBRP Recovery
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build PBRP Recovery with Auto-Detection
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set Swap Space (Optional)
+      uses: pierotofy/set-swap-space@master
+      with:
+        swap-size-gb: 16
+
+    - name: Build PBRP
+      uses: mlm-games/pbrp-build-action@main
+      with:
+        # MANIFEST_BRANCH is omitted to use the default branch
+        DEVICE_TREE: 'https://github.com/zzdwymk/recovery_device_realme_RMX3700'
+        # DEVICE_TREE_BRANCH is omitted to use the default branch
+        BUILD_TARGET: 'pbrp'       # Use 'pbrp' for Android 11 or above
+        # DEVICE_NAME and DEVICE_PATH are omitted to auto-detect
+
+    - name: Upload Recovery Image
+      uses: actions/upload-artifact@v3
+      with:
+        name: PBRP-Recovery
+        path: ${{ env.OUTPUT_DIR }}/*.img
