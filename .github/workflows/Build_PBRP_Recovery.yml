@@ -22,7 +22,7 @@ jobs:
       with:
         MANIFEST_BRANCH: 'android-12.1'
         DEVICE_TREE: 'https://github.com/zzdwymk/recovery_device_realme_RMX3700'
-        DEVICE_TREE_BRANCH: 'main'
+        DEVICE_TREE_BRANCH: 'orangefox-12.1'
         DEVICE_NAME: 'RMX3700'
         DEVICE_PATH: 'device/realme/RMX3700'
         BUILD_TARGET: 'pbrp'   # Use 'pbrp' for Android 11 or above
