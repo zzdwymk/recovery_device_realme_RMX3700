@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build PBRP Recovery with Auto-Detection
+    name: Build PBRP Recovery with Provided Device Info
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v4
@@ -20,11 +20,12 @@ jobs:
     - name: Build PBRP
       uses: mlm-games/pbrp-build-action@main
       with:
-        # MANIFEST_BRANCH is omitted to use the default branch
+        MANIFEST_BRANCH: 'android-12.1'
         DEVICE_TREE: 'https://github.com/zzdwymk/recovery_device_realme_RMX3700'
-        # DEVICE_TREE_BRANCH is omitted to use the default branch
-        BUILD_TARGET: 'pbrp'       # Use 'pbrp' for Android 11 or above
-        # DEVICE_NAME and DEVICE_PATH are omitted to auto-detect
+        DEVICE_TREE_BRANCH: 'main'
+        DEVICE_NAME: 'RMX3700'
+        DEVICE_PATH: 'device/realme/RMX3700'
+        BUILD_TARGET: 'pbrp'   # Use 'pbrp' for Android 11 or above
 
     - name: Upload Recovery Image
       uses: actions/upload-artifact@v3
